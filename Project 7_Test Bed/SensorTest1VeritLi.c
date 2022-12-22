@@ -14,16 +14,22 @@
 
 task main()
 {
-//motors:
+//motors: (viewing the motor such that the output shaft faces towards you)
+//postive power value goes counter-clockwise
+//negative power value goes clockwise
+//the closer the abs(power value) is to 127, the faster the motor spins
+//when the power value is 0 the motor stays still (seems to coast)
 
 //servo motor:
 
 //flashlight:
+//brightest at a power of 127
+//completely off when power is <=0
 
 
 //line follower:
-//red:
-//orange:
+//red: 128
+//orange: 133
 //yellow:
 //green:
 //blue:
@@ -32,12 +38,20 @@ task main()
 
 
 //potentiometer:
+//has values of 0-4095
+//rotation of 90 degrees corresponds to
 
 //light sensor:
+//when covered has a value of about 770
+//when uncovered (exposed to light of lab) has a value of about 140
 
 //limit switch:
+//value of 0 when unpressed
+//value of 1 when pressed
 
 //bump switch:
+//value of 0 when unpressed
+//value of 1 when pressed
 
 //quadrature encoder:
 

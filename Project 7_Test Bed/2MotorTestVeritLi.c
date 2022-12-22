@@ -5,9 +5,14 @@
 
 task main()
 {
-moveMotor(rightMotor, 5.0, seconds, 127/2);
-moveMotor(leftMotor, 2.5, seconds, 3 * 127 / 4);
-setMultipleMotors(127, rightMotor, leftMotor);
+startMotor(rightMotor, 127/2);
+wait(5);
+stopMotor(rightMotor);
+startMotor(leftMotor, 3 * 127 / 4);
+wait(2.5);
+stopMotor(leftMotor);
+forward(127);
 wait(7.25);
+stopAllTasks();
 
 }

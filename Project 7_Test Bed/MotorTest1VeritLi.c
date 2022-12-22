@@ -8,8 +8,8 @@ task main()
 
 //startMotor(rightMotor, 127/2);
 //startMotor(leftMotor, 127/2);
-startMotor(rightMotor, -127); //reversed rightMotor by setting speed to negation of original speed
-startMotor(leftMotor, 127); //reversed leftMotor by configuring it to be reversed in the Motor and Sensor Setup
+startMotor(rightMotor, -127/2); //reversed rightMotor by setting speed to negation of original speed
+startMotor(leftMotor, 127/2); //reversed leftMotor by configuring it to be reversed in the Motor and Sensor Setup
 wait(5);
 stopMotor(rightMotor);
 stopMotor(leftMotor);
