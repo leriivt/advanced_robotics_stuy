@@ -40,7 +40,7 @@ task main()
 
 //potentiometer:
 //has values of 0-4095
-//rotation of 90 degrees corresponds to
+//rotation of 90 degrees corresponds to 4095-2750
 
 //light sensor:
 //when covered has a value of about 770
