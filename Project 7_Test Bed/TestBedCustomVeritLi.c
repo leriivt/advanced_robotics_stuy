@@ -5,6 +5,7 @@
 #pragma config(Sensor, dgtl2,  bumpSwitch,     sensorTouch)
 #pragma config(Sensor, dgtl3,  quad,           sensorQuadEncoder)
 #pragma config(Sensor, dgtl5,  sonar,          sensorSONAR_inch)
+#pragma config(Sensor, dgtl9,  jumper,         sensorDigitalIn)
 #pragma config(Sensor, dgtl12, green,          sensorLEDtoVCC)
 #pragma config(Motor,  port1,           flashlight,    tmotorVexFlashlight, openLoop, reversed)
 #pragma config(Motor,  port2,           rightMotor,    tmotorVex393_MC29, openLoop)
@@ -14,8 +15,36 @@
 
 task main()
 {
+
 while(1==1){
 
+	//by default motors are off. Holding down either the bumpSwitch or limitSwitch
+	//will start either leftMotor or rightMotor respectively,
+	//unless both the bumpSwitch and limitSwitch are pressed where they will both be stopped
+	if (SensorValue[bumpSwitch] == 1) {
+		startMotor(leftMotor, 63);
+	}
+	else {
+		stopMotor(leftMotor);
+	}
+	if (SensorValue[limitSwitch] == 1) {
+		startMotor(rightMotor, 63);
+	}
+	else {
+		stopMotor(rightMotor);
+	}
+	if (SensorValue[bumpSwitch] == 1 && SensorValue[limitSwitch] == 1) {
+		stopMotor(rightMotor);
+		stopMotor(leftMotor);
+	}
+
+	if (SensorValue[jumper] == 0) { //if jumper is in
+
+		//the darker it is, the faster the motor will spin
+		float motorSpeed = SensorValue[lightSensor];
+		motorSpeed *= 127.0 / 4095.0
+		startMotor(leftMotor, motorSpeed);
+	}
 }
 
 

@@ -21,6 +21,7 @@ task main()
 //when the power value is 0 the motor stays still (seems to coast)
 
 //servo motor:
+//has a default position of 0
 
 //flashlight:
 //brightest at a power of 127
