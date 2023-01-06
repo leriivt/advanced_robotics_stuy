@@ -5,6 +5,7 @@
 #pragma config(Sensor, dgtl2,  bumpSwitch,     sensorTouch)
 #pragma config(Sensor, dgtl3,  quad,           sensorQuadEncoder)
 #pragma config(Sensor, dgtl5,  sonar,          sensorSONAR_inch)
+#pragma config(Sensor, dgtl9,  jumper,         sensorDigitalIn)
 #pragma config(Sensor, dgtl12, green,          sensorLEDtoVCC)
 #pragma config(Motor,  port1,           flashlight,    tmotorVexFlashlight, openLoop, reversed)
 #pragma config(Motor,  port2,           rightMotor,    tmotorVex393_MC29, openLoop)
@@ -20,8 +21,11 @@ task main()
 //the closer the abs(power value) is to 127, the faster the motor spins
 //when the power value is 0 the motor stays still (seems to coast)
 
-//servo motor:
+//servo motor: (same view as motors)
 //has a default position of 0
+//difference between -127 and 127 is about 120 degrees
+//increasing power --> counter-clockwise turn
+//decreasing power --> clockwise turn
 
 //flashlight:
 //brightest at a power of 127
@@ -55,12 +59,20 @@ task main()
 //value of 1 when pressed
 
 //quadrature encoder:
+//clockwise turn increases value
+//counter-clockwise turn decreases value
+//value doesn't reset to 0 ever time run the code
+//half turn clockwise corresponds to about +180
 
 //sonar sensor:
 
 //LED:
+//unlit has a value of 0
+//lit has a value of 1
 
 //jumper clip:
+//value of 1 when out
+//value of 0 when in
 
 
 }
